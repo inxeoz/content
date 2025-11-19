@@ -132,6 +132,10 @@ quic: off
 ingress:
   - hostname: app.example.com
     service: http://localhost:8080
+
+  - hostname: app2.example.com
+    service: http://localhost:8081
+
   - service: http_status:404
 ```
 
@@ -168,6 +172,21 @@ location=...
 You’re live.
 
 ---
+
+# Run in background 
+
+```
+
+~/.cloudflared ❯ sudo cloudflared --config ~/.cloudflared/config.yml service install
+[sudo] password for inxeoz:
+2025-11-19T05:29:10Z INF Using Systemd
+2025-11-19T05:29:15Z INF Linux service for cloudflared installed successfully
+
+~/.cloudflared ❯ sudo systemctl start cloudflared
+sudo systemctl enable cloudflared
+
+~/.cloudflared ❯
+```
 
 # 🟥 **8. Why Cloudflare Tunnel Fails on Some Wi-Fi Networks**
 
